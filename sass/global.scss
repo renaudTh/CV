@@ -1,0 +1,64 @@
+@import "colors";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Montserrat',sans-serif;
+    font-size: 14px;
+    font-weight: 500;   
+    color: $globalText;
+}
+a {
+    color: inherit
+}
+a:visited{
+    color: inherit;
+}
+li{
+    list-style-type: none;  
+}
+.container{
+
+    margin: auto;
+    width: $globalWidth;
+    height: $globalHeight;
+}
+main{
+
+    display: flex;
+    flex-direction: row;
+    height: calc(100% - $headerHeight);
+    width: 100%;
+    background-color: $mainBackground;
+    color: $globalText;
+    
+    @media screen and (min-width: $small) and (max-width: $medium) {
+        flex-direction: column;
+        height: auto;
+    }
+    @media screen and (max-width: $small){
+
+        font-size: 0.5em;
+        flex-direction: column;
+        height: auto;
+    }
+
+}
+.active{
+    background:linear-gradient($active, $active);
+}
+/* Header */
+@import 'header';
+/* Left side */
+@import 'left';
+/* content side */
+@import 'content';
+/* job component*/
+@import 'job';
+/* portfolio component */
+@import 'portfolio';
+/* Skills bars and animations */
+@import 'skills';
+

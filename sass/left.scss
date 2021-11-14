@@ -1,0 +1,93 @@
+@import "colors";
+
+.left{
+
+
+    display: flex;
+    flex-direction: column;
+    width: $leftWidth;
+    height: 100%;
+    background-color: $leftBackgrounds;
+    float: left;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.75;
+    overflow: auto; 
+
+    h2{
+        text-align: center;
+        margin: 10px;
+    }
+
+    #photo{
+        width: 100%;
+        height: 50%;
+        background-image: url("../images/Photo2.jpg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    table{
+        margin-left: auto;
+        margin-right: auto;
+        td{
+            padding-left: 10px;
+        }
+        i{
+            font-size: 20px;
+        }
+    }
+    #social{
+        text-align: center;
+        i{
+            font-size: 20px;
+            background-color: #838293;
+            padding: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+    }
+
+    @media screen and (min-width: $small) and (max-width: $medium) {
+
+        flex-direction: row;
+        width: 100%;
+        height: 350px;
+        #photo{
+            width: 50%;
+            height: 100%;
+            float: left;
+            background-position: left;
+
+        }
+    }
+    @media screen and (max-width: $small){
+
+        flex-direction: column;
+        width: 100%;
+        height: 550px;
+        font-size: 13px;
+        line-height: 1.75;
+    
+    }
+
+}
+.fa-twitter:hover{
+    background: linear-gradient( #1da1f2,#1da1f2);
+}
+.fa-facebook:hover{
+    background: linear-gradient(#1876f2,#1876f2);
+}
+.fa-github:hover{
+    background: linear-gradient(black, black);
+}
+.fa-linkedin:hover{
+    background: linear-gradient(#0a66c2, #0a66c2) ;
+}
+.fa-twitch:hover{
+    background: linear-gradient(#9146ff, #9146ff);
+}
+.fa-instagram:hover{
+    background: linear-gradient(to top, #fad675, #ed552c, #ad1b80, #542fd2);
+}

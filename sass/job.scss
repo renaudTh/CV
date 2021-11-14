@@ -1,0 +1,71 @@
+.job-experience{
+
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    .job-date{
+
+        width: 150px;
+        text-align: right;
+        font-size: 24px;
+        color: #8583e1;
+        font-weight: 700;
+    }
+    .job-title{
+        width : calc(100% - 150px);
+        padding-left: 25px;
+        
+        p{
+            font-size: 15px;
+        }
+        h3{
+            color: #100f3a;
+            font-weight :700;
+            font-size: 24px;
+        }
+        span{
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+    
+    @media screen and (min-width: $small) and (max-width: $medium) {
+        
+        flex-direction: column;
+        .job-date{
+            text-align: left;
+        }
+        .job-title{
+            width: 100%;
+            padding-left: 0;
+        }
+    }
+    @media screen and (max-width: $small){
+        
+        flex-direction: column;
+        .job-date{
+            text-align: left;
+            font-size: 20px;
+        }
+        .job-title{
+            width: 100%;
+            padding-left: 0;
+            p{
+                font-size: 13px;
+            }
+            h3{
+                color: #100f3a;
+                font-weight :700;
+                font-size: 20px;
+            }
+            span{
+                font-size: 14px;
+                font-weight: 600;
+            }
+        }
+    }
+    
+
+}

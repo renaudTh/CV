@@ -1,0 +1,41 @@
+$langages : ('C':65%,
+             'Javascript':80%, 
+             'HTML':90%, 
+             'CSS':85%, 
+             'Python':80%);
+
+$skillsBarsColors : ('C': linear-gradient(to right,#283593,#3949ab,#5c6bc0),
+                     'Javascript': linear-gradient(to right,#323330,#d1bf46,#fde755),
+                     'HTML': linear-gradient(to right,#e44f26,#f1662a,#f8b395),
+                     'CSS': linear-gradient(to right,#1572b6,#33a9dc,#99d4ee),
+                     'Python': linear-gradient(to right,#3774a7,#ffcd3d));
+
+.skill-container{
+    width: 200px;
+    height: 5px;
+    background-color: #a5a5a5;
+    border-radius: 10px;
+}
+
+.skill{
+    height: 100%; 
+    border-radius: 10px;   
+}
+
+@each $name, $p in $langages {
+
+    @keyframes load#{$name} {
+        0% {width: 0%;}
+        100% {width: $p;}
+    }
+    .#{$name}{
+        width: $p;
+        animation : load#{$name} 0.7s linear;
+        background: map-get($skillsBarsColors, $name);
+    }
+    .#{$name}::before{
+        content: $name;
+        display: block;
+        font-size: 14px;
+    }
+}

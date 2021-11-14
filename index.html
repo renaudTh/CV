@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="style.css">
+
+    <title>Thomas Renaud</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Thomas<span>.</span>R</div>
+            <ul id="menu" class="menu">
+                <li><a href="#/about">A propos</a></li>
+                <li><a href="#/skills">Compétences</a></li>
+                <li><a href="#/experiences">Expériences</a></li>
+                <li><a href="#/cursus">Cursus</a></li>
+                <li><a href="#/portfolio">Portfolio</a></li>
+                <li><a href="#/activites">Activités</a></li>
+                <li><a href="#/contact">Contact</a></li>
+                <li class='menuButton'><a  href="javascript:void(0);" onclick="showMenu()">Menu</a></li>
+            </ul>
+        </header>
+        <main>
+            <div class="left">
+                <div id="photo">
+                </div>
+            
+                <div class="left-infos">
+                    <div id="coordonnees">
+                        <h2>Informations générales</h2>
+                        <table>
+                            <tr>
+                                <td><i class='fa fa-home'></i></td>
+                                <td>22Ter rue Marx Dormoy <br /> 38000 Grenoble</td>
+                            </tr>
+                            <tr>
+                                <td><i class='fa fa-phone'></i></td>
+                                <td>06.16.95.46.69</td>
+                            </tr>
+                            <tr>
+                                <td><i class='fa fa-envelope-open'></i></td>
+                                <td>t.renaud@neuf.fr</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="social">
+                        <h2>Médias sociaux</h2>
+                        <a target="_blank" href="https://www.instagram.com/tho_maths/"><i class="fab fa-instagram"></i></a>
+                        <a target="_blank" href="https://www.twitter.com/trenaud3"><i class="fab fa-twitter"></i></a>
+                        <a target="_blank" href="https://www.facebook.com/thomas.renaud3"><i class="fab fa-facebook"></i></a>
+                        <a target="_blank" href="https://github.com/renaudTh"><i class="fab fa-github"></i></a>
+                        <a target="_blank" href=""><i class="fab fa-linkedin"></i></a>
+                        <a target="_blank" href="https://twitch.tv/cauchyschwarzlive"><i class="fab fa-twitch"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div id="content">
+
+              <!-- Content fectch by js -->
+               
+               
+            </div>
+        </main>
+    </div>
+ 
+    <script>
+        let show = false
+        function showMenu(){
+            show = !show;
+            let remove = show?'up':'down';
+            let add = show?'down':'up';
+            let m = document.getElementById('menu');
+            if(show){
+                m.classList.remove(remove);
+                m.classList.add(add);
+            }
+            else{
+                m.classList.remove(remove);
+                m.classList.add(add);
+                document.querySelector('.up').addEventListener('webkitAnimationEnd', ()=>{
+                    let m = document.getElementById('menu');
+                    m.classList.remove('up');
+                });
+            }   
+        }
+        
+        function listenHash(){
+            let url = window.location.hash;
+            url = url.slice(2) || 'about';
+            contenu = document.getElementById('content');
+            liens = document.querySelectorAll('.menu li a');
+            for(l of liens) l.classList.remove('active');
+            lien = document.querySelector('a[href="#/'+url+'"]')
+            lien.classList.add('active');
+            fetch('pages/'+url+'.html').then((res) => {
+                return res.text();
+             }).then(text =>{
+                contenu.innerHTML = text;
+            });
+        }
+        window.addEventListener('hashchange',listenHash);
+        window.addEventListener('load',listenHash);
+
+
+    </script>
+</body>
+
+</html>
